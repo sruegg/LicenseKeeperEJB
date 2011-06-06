@@ -73,4 +73,10 @@ public class Category implements Serializable {
 		this.groups = groups;
 	}
 
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description="
+				+ description + ", groups=" + groups + "]";
+	}
+
 }

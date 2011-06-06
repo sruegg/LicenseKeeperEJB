@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class User implements Serializable {
@@ -24,7 +24,7 @@ public class User implements Serializable {
 	@Column(length = 45)
 	private String password;
 
-	@OneToMany
+	@ManyToOne
 	@JoinColumn
 	private Group group;
 			

@@ -10,7 +10,7 @@ import javax.persistence.PersistenceException;
 import persistance.Category;
 
 @Stateless
-public class CategoryBean implements CategoryLocal, CategoryRemote {
+public class LicenseKeeperBean implements LicenseKeeper, LicenseKeeperRemote {
 
 	@PersistenceContext
 	private EntityManager em;

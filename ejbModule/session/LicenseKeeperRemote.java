@@ -1,13 +1,12 @@
 package session;
 
 import java.util.List;
-
-import javax.ejb.Local;
+import javax.ejb.Remote;
 
 import persistance.Category;
 
-@Local
-public interface CategoryLocal {
+@Remote
+public interface LicenseKeeperRemote {
 	public List<Category> getCategories() throws PersistException;
 
 	public void saveCategory(Category contact) throws PersistException;

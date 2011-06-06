@@ -26,8 +26,25 @@ public class User implements Serializable {
 
 	@ManyToOne
 	@JoinColumn
-	private Group group;
+	private UserGroup usergroup;
 			
+	public User() {
+		super();
+	}
+
+	public User(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+
+	public User(String username, String password, UserGroup group) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.usergroup = group;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -52,12 +69,12 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public Group getGroup() {
-		return group;
+	public UserGroup getGroup() {
+		return usergroup;
 	}
 
-	public void setGroup(Group group) {
-		this.group = group;
+	public void setGroup(UserGroup group) {
+		this.usergroup = group;
 	}
 
 }

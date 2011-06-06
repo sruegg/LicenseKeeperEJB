@@ -26,7 +26,11 @@ public class Category implements Serializable {
 	private String description;
 	
 	@ManyToMany(mappedBy="categories")
-	private Collection<Group> groups;
+	private Collection<UserGroup> usergroups;
+	
+	public Category() {
+		super();
+	}
 	
 	public Category(String name, String description) {
 		super();
@@ -34,11 +38,11 @@ public class Category implements Serializable {
 		this.description = description;
 	}
 
-	public Category(String name, String description, Collection<Group> groups) {
+	public Category(String name, String description, Collection<UserGroup> groups) {
 		super();
 		this.name = name;
 		this.description = description;
-		this.groups = groups;
+		this.usergroups = groups;
 	}
 
 	public int getId() {
@@ -65,18 +69,18 @@ public class Category implements Serializable {
 		this.description = description;
 	}
 
-	public Collection<Group> getGroups() {
-		return groups;
+	public Collection<UserGroup> getGroups() {
+		return usergroups;
 	}
 
-	public void setGroups(Collection<Group> groups) {
-		this.groups = groups;
+	public void setGroups(Collection<UserGroup> groups) {
+		this.usergroups = groups;
 	}
 
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + ", description="
-				+ description + ", groups=" + groups + "]";
+				+ description + "]";
 	}
 
 }

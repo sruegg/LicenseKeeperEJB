@@ -22,15 +22,15 @@ public class LicenseKeeperBean implements LicenseKeeper, LicenseKeeperRemote {
 	@SuppressWarnings("unchecked")
 	public List<Category> getCategories() throws PersistException {
 		try {
-			return em.createQuery("SELECT c FROM Contact c").getResultList();
+			return em.createQuery("SELECT c FROM Category c").getResultList();
 		} catch (PersistenceException ex) {
 			ex.printStackTrace();
 			throw new PersistException();
 		}
 	}
 
-	public void saveCategory(Category contact) {
-		em.merge(contact);
+	public void saveCategory(Category category) {
+		em.merge(category);
 	}
 
 }

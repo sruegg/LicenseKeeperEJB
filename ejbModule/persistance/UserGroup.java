@@ -12,7 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Group implements Serializable {
+public class UserGroup implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -26,10 +26,25 @@ public class Group implements Serializable {
 	@ManyToMany
 	@JoinTable(
 			name = "GroupCategory",
-			joinColumns = @JoinColumn(name = "group", referencedColumnName = "id"),
+			joinColumns = @JoinColumn(name = "usergroup", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(name = "category", referencedColumnName = "id")
 			)
 	private Collection<Category> categories;
+	
+	public UserGroup() {
+		super();
+	}
+
+	public UserGroup(String name) {
+		super();
+		this.name = name;
+	}
+
+	public UserGroup(String name, Collection<Category> categories) {
+		super();
+		this.name = name;
+		this.categories = categories;
+	}
 
 	public int getId() {
 		return id;

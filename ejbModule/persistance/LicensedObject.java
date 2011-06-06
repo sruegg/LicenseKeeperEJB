@@ -13,6 +13,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -38,6 +39,30 @@ public class LicensedObject implements Serializable {
 	@OneToMany
 	@JoinColumn
 	private Collection<LicensedObjectVersion> licensedObjectVersions;
+	
+	@ManyToOne
+	@JoinColumn
+	private Category category;
+	
+	public LicensedObject() {
+		super();
+	}
+
+	public LicensedObject(String publisher, String name, String description) {
+		super();
+		this.publisher = publisher;
+		this.name = name;
+		this.description = description;
+	}
+
+	public LicensedObject(String publisher, String name, String description,
+			Collection<LicensedObjectVersion> licensedObjectVersions) {
+		super();
+		this.publisher = publisher;
+		this.name = name;
+		this.description = description;
+		this.licensedObjectVersions = licensedObjectVersions;
+	}
 
 	public int getId() {
 		return id;
@@ -78,6 +103,14 @@ public class LicensedObject implements Serializable {
 	public void setLicensedObjectVersions(
 			Collection<LicensedObjectVersion> licensedObjectVersions) {
 		this.licensedObjectVersions = licensedObjectVersions;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Category getCategory() {
+		return category;
 	}
 	
 }

@@ -8,8 +8,19 @@ import javax.persistence.Entity;
 @DiscriminatorValue("OS")
 public class LicensedObjectOperatingSystem extends LicensedObject {
 
+	private static final long serialVersionUID = 1L;
+
 	@Column(length = 45)
 	private String servicePackVersion;
+
+	public LicensedObjectOperatingSystem() {
+		super();
+	}
+
+	public LicensedObjectOperatingSystem(String servicePackVersion) {
+		super();
+		this.servicePackVersion = servicePackVersion;
+	}
 
 	public String getServicePackVersion() {
 		return servicePackVersion;

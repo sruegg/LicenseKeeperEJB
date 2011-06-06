@@ -17,7 +17,16 @@ public class LicensedObjectKey implements Serializable {
 	private int id;
 
 	@Lob
-	private String key;
+	private String licenseKey;
+
+	public LicensedObjectKey() {
+		super();
+	}
+
+	public LicensedObjectKey(String key) {
+		super();
+		this.licenseKey = key;
+	}
 
 	public int getId() {
 		return id;
@@ -28,11 +37,11 @@ public class LicensedObjectKey implements Serializable {
 	}
 
 	public String getKey() {
-		return key;
+		return licenseKey;
 	}
 
 	public void setKey(String key) {
-		this.key = key;
+		this.licenseKey = key;
 	}
 	
 }

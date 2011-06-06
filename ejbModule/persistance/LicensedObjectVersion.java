@@ -31,6 +31,26 @@ public class LicensedObjectVersion implements Serializable {
 	@OneToMany
 	@JoinColumn
 	private Collection<LicensedObjectKey> licensedObjectKeys;
+	
+	public LicensedObjectVersion() {
+		super();
+	}
+
+	public LicensedObjectVersion(int major, int minor, int build) {
+		super();
+		this.major = major;
+		this.minor = minor;
+		this.build = build;
+	}
+
+	public LicensedObjectVersion(int major, int minor, int build,
+			Collection<LicensedObjectKey> licensedObjectKeys) {
+		super();
+		this.major = major;
+		this.minor = minor;
+		this.build = build;
+		this.licensedObjectKeys = licensedObjectKeys;
+	}
 
 	public int getId() {
 		return id;

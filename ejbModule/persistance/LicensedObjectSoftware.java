@@ -8,8 +8,19 @@ import javax.persistence.Entity;
 @DiscriminatorValue("SOFT")
 public class LicensedObjectSoftware extends LicensedObject {
 
+	private static final long serialVersionUID = 1L;
+
 	@Column
 	private int activationsLimit;
+
+	public LicensedObjectSoftware() {
+		super();
+	}
+
+	public LicensedObjectSoftware(int activationsLimit) {
+		super();
+		this.activationsLimit = activationsLimit;
+	}
 
 	public int getActivationsLimit() {
 		return activationsLimit;

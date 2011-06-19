@@ -25,6 +25,12 @@ public class LicensedObjectOperatingSystem extends LicensedObject {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public LicensedObjectOperatingSystem(int id, String publisher, String name,
+			String description, String servicePackVersion) {
+		super(id, publisher, name, description);
+		this.servicePackVersion = servicePackVersion;
+	}
+
 	public LicensedObjectOperatingSystem(String publisher, String name,
 			String description, Category category, String servicePackVersion,
 			Collection<LicensedObjectVersion> licensedObjectVersions) {

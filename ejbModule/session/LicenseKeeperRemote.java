@@ -3,13 +3,7 @@ package session;
 import java.util.List;
 import javax.ejb.Remote;
 
-import persistance.Category;
-import persistance.LicensedObject;
-import persistance.LicensedObjectKey;
-import persistance.LicensedObjectOperatingSystem;
-import persistance.LicensedObjectVersion;
-import persistance.User;
-import persistance.UserGroup;
+import persistance.*;
 
 @Remote
 public interface LicenseKeeperRemote {
@@ -30,6 +24,8 @@ public interface LicenseKeeperRemote {
 	public List<LicensedObject> getLicensedObjects() throws PersistException;
 	public void saveLicensedObject(LicensedObject licensedObject) throws PersistException;
 	public LicensedObject getLicensedObject(int id) throws PersistException;
+	public LicensedObjectOperatingSystem getLicensedObjectOperatingSystem(int id) throws PersistException;
+	public LicensedObjectSoftware getLicensedObjectSoftware(int id) throws PersistException;
 	
 	public List<LicensedObjectVersion> getLicensedObjectVersions() throws PersistException;
 	public void saveLicensedObjectVersion(LicensedObjectVersion licensedObjectVersion) throws PersistException;

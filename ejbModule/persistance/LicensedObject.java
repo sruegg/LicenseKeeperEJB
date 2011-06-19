@@ -57,6 +57,15 @@ public class LicensedObject implements Serializable {
 		super();
 	}
 
+	public LicensedObject(int id, String publisher, String name,
+			String description) {
+		super();
+		this.id = id;
+		this.publisher = publisher;
+		this.name = name;
+		this.description = description;
+	}
+
 	public LicensedObject(String publisher, String name, String description) {
 		super();
 		this.publisher = publisher;

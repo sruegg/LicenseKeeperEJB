@@ -4,12 +4,7 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import persistance.Category;
-import persistance.LicensedObject;
-import persistance.LicensedObjectKey;
-import persistance.LicensedObjectVersion;
-import persistance.User;
-import persistance.UserGroup;
+import persistance.*;
 
 @Local
 public interface LicenseKeeper {
@@ -21,6 +16,7 @@ public interface LicenseKeeper {
 	public List<User> getUsers() throws PersistException;
 	public void saveUser(User user) throws PersistException;
 	public User getUser(int id) throws PersistException;
+	public User getUser(String username) throws PersistException;
 	
 	public List<UserGroup> getUserGroups() throws PersistException;
 	public void saveUserGroup(UserGroup usergroup) throws PersistException;
@@ -29,6 +25,8 @@ public interface LicenseKeeper {
 	public List<LicensedObject> getLicensedObjects() throws PersistException;
 	public void saveLicensedObject(LicensedObject licensedObject) throws PersistException;
 	public LicensedObject getLicensedObject(int id) throws PersistException;
+	public LicensedObjectOperatingSystem getLicensedObjectOperatingSystem(int id) throws PersistException;
+	public LicensedObjectSoftware getLicensedObjectSoftware(int id) throws PersistException;
 	
 	public List<LicensedObjectVersion> getLicensedObjectVersions() throws PersistException;
 	public void saveLicensedObjectVersion(LicensedObjectVersion licensedObjectVersion) throws PersistException;

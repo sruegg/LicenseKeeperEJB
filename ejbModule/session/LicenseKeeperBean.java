@@ -7,13 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
-import persistance.Category;
-import persistance.LicensedObject;
-import persistance.LicensedObjectKey;
-import persistance.LicensedObjectOperatingSystem;
-import persistance.LicensedObjectVersion;
-import persistance.User;
-import persistance.UserGroup;
+import persistance.*;
 
 @Stateless
 public class LicenseKeeperBean implements LicenseKeeper, LicenseKeeperRemote {
@@ -110,6 +104,18 @@ public class LicenseKeeperBean implements LicenseKeeper, LicenseKeeperRemote {
 	@Override
 	public LicensedObject getLicensedObject(int id) throws PersistException {
 		return em.find(LicensedObject.class, id);
+	}
+
+	@Override
+	public LicensedObjectOperatingSystem getLicensedObjectOperatingSystem(int id)
+			throws PersistException {
+		return em.find(LicensedObjectOperatingSystem.class, id);
+	}
+
+	@Override
+	public LicensedObjectSoftware getLicensedObjectSoftware(int id)
+			throws PersistException {
+		return em.find(LicensedObjectSoftware.class, id);
 	}
 
 	@SuppressWarnings("unchecked")

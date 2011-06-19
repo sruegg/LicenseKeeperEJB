@@ -28,6 +28,12 @@ public class User implements Serializable {
 	@JoinColumn
 	private UserGroup usergroup;
 			
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password="
+				+ password + "]";
+	}
+
 	public User() {
 		super();
 	}

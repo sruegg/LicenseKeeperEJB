@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -44,6 +45,14 @@ public class LicensedObject implements Serializable {
 	@JoinColumn
 	private Category category;
 	
+	@Override
+	public String toString() {
+		return "LicensedObject [id=" + id + ", publisher=" + publisher
+				+ ", name=" + name + ", description=" + description
+				+ ", licensedObjectVersions=" + licensedObjectVersions
+				+ ", category=" + category + "]";
+	}
+
 	public LicensedObject() {
 		super();
 	}
@@ -62,6 +71,26 @@ public class LicensedObject implements Serializable {
 		this.name = name;
 		this.description = description;
 		this.licensedObjectVersions = licensedObjectVersions;
+	}
+
+	public LicensedObject(String publisher, String name, String description,
+			Category category) {
+		super();
+		this.publisher = publisher;
+		this.name = name;
+		this.description = description;
+		this.category = category;
+	}
+
+	public LicensedObject(String publisher, String name, String description,
+			Collection<LicensedObjectVersion> licensedObjectVersions,
+			Category category) {
+		super();
+		this.publisher = publisher;
+		this.name = name;
+		this.description = description;
+		this.licensedObjectVersions = licensedObjectVersions;
+		this.category = category;
 	}
 
 	public int getId() {

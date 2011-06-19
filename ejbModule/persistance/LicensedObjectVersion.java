@@ -5,6 +5,7 @@ import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,7 +29,7 @@ public class LicensedObjectVersion implements Serializable {
 	@Column
 	private int build;
 	
-	@OneToMany
+	@OneToMany (fetch = FetchType.EAGER)
 	@JoinColumn
 	private Collection<LicensedObjectKey> licensedObjectKeys;
 	
@@ -36,11 +37,19 @@ public class LicensedObjectVersion implements Serializable {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "LicensedObjectVersion [id=" + id + ", major=" + major
+				+ ", minor=" + minor + ", build=" + build
+				+ ", licensedObjectKeys=" + licensedObjectKeys + "]";
+	}
+
 	public LicensedObjectVersion(int major, int minor, int build) {
 		super();
 		this.major = major;
 		this.minor = minor;
 		this.build = build;
+		this.licensedObjectKeys = null;
 	}
 
 	public LicensedObjectVersion(int major, int minor, int build,

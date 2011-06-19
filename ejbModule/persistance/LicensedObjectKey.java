@@ -32,6 +32,12 @@ public class LicensedObjectKey implements Serializable {
 		return id;
 	}
 
+	@Override
+	public String toString() {
+		return "LicensedObjectKey [id=" + id + ", licenseKey=" + licenseKey
+				+ "]";
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}

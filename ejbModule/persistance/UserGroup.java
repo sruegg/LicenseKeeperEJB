@@ -3,6 +3,7 @@ package persistance;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UserGroup implements Serializable {
@@ -31,13 +33,24 @@ public class UserGroup implements Serializable {
 			)
 	private Collection<Category> categories;
 	
+	@OneToMany(mappedBy = "usergroup")
+	private Collection<User> users;
+	
+	@Override
+	public String toString() {
+		return "UserGroup [id=" + id + ", name=" + name + "]";
+	}
+
 	public UserGroup() {
 		super();
+		this.name = null;
+		this.categories = null;
 	}
 
 	public UserGroup(String name) {
 		super();
 		this.name = name;
+		this.categories = null;
 	}
 
 	public UserGroup(String name, Collection<Category> categories) {
@@ -68,5 +81,13 @@ public class UserGroup implements Serializable {
 
 	public Collection<Category> getCategories() {
 		return categories;
+	}
+
+	public void setUsers(Collection<User> users) {
+		this.users = users;
+	}
+
+	public Collection<User> getUsers() {
+		return users;
 	}
 }

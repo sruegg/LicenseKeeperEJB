@@ -21,6 +21,7 @@ public interface LicenseKeeperRemote {
 	public List<User> getUsers() throws PersistException;
 	public void saveUser(User user) throws PersistException;
 	public User getUser(int id) throws PersistException;
+	public User getUser(String username) throws PersistException;
 	
 	public List<UserGroup> getUserGroups() throws PersistException;
 	public void saveUserGroup(UserGroup usergroup) throws PersistException;

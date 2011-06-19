@@ -58,6 +58,16 @@ public class LicenseKeeperBean implements LicenseKeeper, LicenseKeeperRemote {
 	public User getUser(int id) throws PersistException {
 		return em.find(User.class, id);
 	}
+	
+	@Override
+	public User getUser(String username) throws PersistException{
+		try {
+			return (User) em.createQuery("SELECT c FROM User c WHERE username='" + username + "'").getResultList().get(0);
+		} catch (PersistenceException ex) {
+			ex.printStackTrace();
+			throw new PersistException();
+		}
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override

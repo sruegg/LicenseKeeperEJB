@@ -21,6 +21,12 @@ public class LicensedObjectSoftware extends LicensedObject {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public LicensedObjectSoftware(int id, String publisher, String name,
+			String description, int activationsLimit) {
+		super(id, publisher, name, description);
+		this.activationsLimit = activationsLimit;
+	}
+
 	public LicensedObjectSoftware(String publisher, String name,
 			String description, Category category, int activationsLimit,
 			Collection<LicensedObjectVersion> licensedObjectVersions) {

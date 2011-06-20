@@ -23,6 +23,8 @@ public interface LicenseKeeper {
 	public UserGroup getUserGroup(int id) throws PersistException;
 	
 	public List<LicensedObject> getLicensedObjects() throws PersistException;
+	public List<LicensedObjectOperatingSystem> getLicensedObjectsOperatingSystem() throws PersistException;
+	public List<LicensedObjectSoftware> getLicensedObjectsSoftware() throws PersistException;
 	public void saveLicensedObject(LicensedObject licensedObject) throws PersistException;
 	public LicensedObject getLicensedObject(int id) throws PersistException;
 	public LicensedObjectOperatingSystem getLicensedObjectOperatingSystem(int id) throws PersistException;

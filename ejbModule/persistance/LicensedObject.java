@@ -37,8 +37,7 @@ public class LicensedObject implements Serializable {
 	@Lob
 	private String description;
 	
-	@OneToMany
-	@JoinColumn
+	@OneToMany (mappedBy = "licensedObject")
 	private Collection<LicensedObjectVersion> licensedObjectVersions;
 	
 	@ManyToOne
@@ -99,6 +98,15 @@ public class LicensedObject implements Serializable {
 		this.name = name;
 		this.description = description;
 		this.licensedObjectVersions = licensedObjectVersions;
+		this.category = category;
+	}
+
+	public LicensedObject(int id, String publisher, String name,
+			String description, Category category) {
+		this.id = id;
+		this.publisher = publisher;
+		this.name = name;
+		this.description = description;
 		this.category = category;
 	}
 

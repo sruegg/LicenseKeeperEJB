@@ -30,6 +30,7 @@ public class Category implements Serializable {
 	
 	public Category() {
 		super();
+		this.id = 0;
 	}
 	
 	public Category(String name, String description) {

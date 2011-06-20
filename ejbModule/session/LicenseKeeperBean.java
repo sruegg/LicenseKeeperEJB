@@ -191,4 +191,28 @@ public class LicenseKeeperBean implements LicenseKeeper, LicenseKeeperRemote {
 		return em.find(LicensedObjectKey.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<LicensedObjectVersion> getLicensedObjectVersions(int id)
+			throws PersistException {
+		try {
+			return em.createQuery("SELECT c FROM LicensedObjectVersion c WHERE licensedObject_id=" + id).getResultList();
+		} catch (PersistenceException ex) {
+			ex.printStackTrace();
+			throw new PersistException();
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<LicensedObjectKey> getLicensedObjectKeys(int id)
+			throws PersistException {
+			try {
+				return em.createQuery("SELECT c FROM LicensedObjectKey c WHERE licensedObjectKeys_id=" + id).getResultList();
+			} catch (PersistenceException ex) {
+				ex.printStackTrace();
+				throw new PersistException();
+			}
+	}
+
 }

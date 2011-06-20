@@ -24,10 +24,10 @@ public class LicensedObjectOperatingSystem extends LicensedObject {
 		super(publisher, name, description, category);
 		// TODO Auto-generated constructor stub
 	}
-	
-	public LicensedObjectOperatingSystem(int id, String publisher, String name,
-			String description, String servicePackVersion) {
-		super(id, publisher, name, description);
+
+	public LicensedObjectOperatingSystem(String string, String publisher,
+			String name, Category category, String servicePackVersion) {
+		super(string, publisher, name, category);
 		this.servicePackVersion = servicePackVersion;
 	}
 
@@ -64,6 +64,18 @@ public class LicensedObjectOperatingSystem extends LicensedObject {
 		this.servicePackVersion = servicePackVersion;
 	}
 
+	public LicensedObjectOperatingSystem(int id, String publisher, String name,
+			String description, String servicePackVersion) {
+		super(id, publisher, name, description);
+		this.servicePackVersion = servicePackVersion;
+	}
+
+	public LicensedObjectOperatingSystem(int id, String publisher, String name,
+			String description, String servicePackVersion, Category category) {
+		super(id, publisher, name, description, category);
+		this.servicePackVersion = servicePackVersion;
+	}
+
 	public String getServicePackVersion() {
 		return servicePackVersion;
 	}
@@ -71,5 +83,5 @@ public class LicensedObjectOperatingSystem extends LicensedObject {
 	public void setServicePackVersion(String servicePackVersion) {
 		this.servicePackVersion = servicePackVersion;
 	}
-	
+
 }

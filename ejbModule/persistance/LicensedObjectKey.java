@@ -42,11 +42,11 @@ public class LicensedObjectKey implements Serializable {
 		this.id = id;
 	}
 
-	public String getKey() {
+	public String getLicenseKey() {
 		return licenseKey;
 	}
 
-	public void setKey(String key) {
+	public void setLicenseKey(String key) {
 		this.licenseKey = key;
 	}
 	

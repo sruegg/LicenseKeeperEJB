@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -29,9 +30,13 @@ public class LicensedObjectVersion implements Serializable {
 	@Column
 	private int build;
 	
-	@OneToMany (fetch = FetchType.EAGER)
+	@OneToMany
 	@JoinColumn
 	private Collection<LicensedObjectKey> licensedObjectKeys;
+	
+	@ManyToOne
+	@JoinColumn
+	private LicensedObject licensedObject;
 	
 	public LicensedObjectVersion() {
 		super();
@@ -53,12 +58,13 @@ public class LicensedObjectVersion implements Serializable {
 	}
 
 	public LicensedObjectVersion(int major, int minor, int build,
-			Collection<LicensedObjectKey> licensedObjectKeys) {
+			Collection<LicensedObjectKey> licensedObjectKeys, LicensedObject licensedObject) {
 		super();
 		this.major = major;
 		this.minor = minor;
 		this.build = build;
 		this.licensedObjectKeys = licensedObjectKeys;
+		this.licensedObject = licensedObject;
 	}
 
 	public int getId() {
@@ -100,6 +106,14 @@ public class LicensedObjectVersion implements Serializable {
 	public void setLicensedObjectKeys(
 			Collection<LicensedObjectKey> licensedObjectKeys) {
 		this.licensedObjectKeys = licensedObjectKeys;
+	}
+
+	public void setLicensedObject(LicensedObject licensedObject) {
+		this.licensedObject = licensedObject;
+	}
+
+	public LicensedObject getLicensedObject() {
+		return licensedObject;
 	}
 	
 }

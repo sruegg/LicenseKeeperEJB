@@ -31,10 +31,12 @@ public interface LicenseKeeper {
 	public LicensedObjectSoftware getLicensedObjectSoftware(int id) throws PersistException;
 	
 	public List<LicensedObjectVersion> getLicensedObjectVersions() throws PersistException;
+	public List<LicensedObjectVersion> getLicensedObjectVersions(int id) throws PersistException;
 	public void saveLicensedObjectVersion(LicensedObjectVersion licensedObjectVersion) throws PersistException;
 	public LicensedObjectVersion getLicensedObjectVersion(int id) throws PersistException;
 	
 	public List<LicensedObjectKey> getLicensedObjectKeys() throws PersistException;
+	public List<LicensedObjectKey> getLicensedObjectKeys(int id) throws PersistException;
 	public void saveLicensedObjectKey(LicensedObjectKey licensedObjectKey) throws PersistException;
 	public LicensedObjectKey getLicensedObjectKey(int id) throws PersistException;
 	
